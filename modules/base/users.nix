@@ -24,6 +24,10 @@
     ];
   };
 
+  # Enable zsh at the NixOS level (home-manager also configures it for the user)
+  # This is required because users.users.tecnodespegue.shell is set to zsh
+  programs.zsh.enable = true;
+
   # Root password: disabled (only SSH key access)
   users.users.root.hashedPassword = "!";
 

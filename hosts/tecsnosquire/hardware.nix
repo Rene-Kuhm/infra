@@ -18,8 +18,8 @@
   # Enable important kernel modules
   boot.kernelModules = [ "kvm-intel" ];
 
-  # Filesystem support
-  boot.supportedFilesystems = [ "ext4" "btrfs" "xfs" "vfat" "ntfs" "f2fs" "zfs" ];
+  # Filesystem support (ZFS removed - not used; would require networking.hostId)
+  boot.supportedFilesystems = [ "ext4" "btrfs" "xfs" "vfat" "ntfs" "f2fs" ];
 
   # Networking (DHCP for now, will be overridden by networking module)
   networking.useDHCP = lib.mkDefault true;
