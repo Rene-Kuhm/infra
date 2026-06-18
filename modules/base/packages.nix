@@ -20,7 +20,7 @@
 
     # Disk tools
     parted
-    gdisk
+    gptfdisk
     smartmontools
 
     # Editors
