@@ -36,20 +36,8 @@
     };
   };
 
-  # Filesystems (handled by disko)
-  fileSystems."/" = {
-    device = "/dev/disk/by-label/nixos";
-    fsType = "ext4";
-  };
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-label/EFI";
-    fsType = "vfat";
-  };
-  fileSystems."/persistent" = {
-    device = "/dev/disk/by-label/persistent";
-    fsType = "ext4";
-    options = [ "defaults" "noatime" ];
-  };
+  # Filesystems are managed by disko (see ./disko.nix)
+  # Manual fileSystems definitions removed - let disko handle them
 
   # Swap file (10GB RAM needs swap)
   swapDevices = [ { device = "/var/lib/swapfile"; size = 4 * 1024; } ];
