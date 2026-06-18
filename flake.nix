@@ -80,6 +80,8 @@
       ];
 
       imports = [
+        inputs.treefmt-nix.flakeModule
+        inputs.pre-commit-hooks-nix.flakeModule
         ./flake/parts/devshells.nix
         ./flake/parts/formatter.nix
         ./flake/parts/overlays.nix
