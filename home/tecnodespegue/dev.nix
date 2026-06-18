@@ -24,36 +24,15 @@
     stern
   ];
 
-  # Neovim with LazyVim
+  # Neovim (base install; LazyVim distribution is installed manually via git clone)
   programs.neovim = {
     enable = true;
     defaultEditor = true;
 
-    # LazyVim setup
-    plugins = [
-      # LazyVim itself
-      {
-        type = "lua";
-        name = "lazyvim";
-        src = pkgs.fetchFromGitHub {
-          owner = "LazyVim";
-          repo = "lazyvim";
-          rev = "stable";
-          sha256 = "0000000000000000000000000000000000000000000000=";
-        };
-      }
-    ];
-
-    extraLuaConfig = ''
-      -- LazyVim will be configured via ~/.config/nvim/lazyvim.json
-      require("lazy").setup({
-        spec = {
-          { "LazyVim/LazyVim", import = "lazyvim.plugins" },
-          { import = "lazyvim.plugins.examples.coding" },
-        },
-        defaults = { lazy = false, version = "*" },
-      })
-    '';
+    # LazyVim is a full neovim distribution - clone it manually:
+    #   git clone https://github.com/LazyVim/starter ~/.config/nvim
+    # It manages its own plugins via lazy.nvim, so we don't list any here.
+    # extraLuaPreConfig / extraLuaConfig left empty for now.
   };
 
   # Tmux
