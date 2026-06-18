@@ -31,17 +31,6 @@
   # Root password: disabled (only SSH key access)
   users.users.root.hashedPassword = "!";
 
-  # Wheel group: passwordless sudo
+  # Wheel group: passwordless sudo (wheelNeedsPassword = false does this)
   security.sudo.wheelNeedsPassword = false;
-  security.sudo.extraRules = [
-    {
-      groups = [ "wheel" ];
-      commands = [
-        {
-          command = "ALL";
-          options = [ "NOPASSWD" "ALL" ];
-        }
-      ];
-    }
-  ];
 }
