@@ -56,10 +56,9 @@
     cmake
   ];
 
-  # Zsh as default shell
+  # Zsh configuration (default shell is set via users.users.<name>.shell in modules/base/users.nix)
   programs.zsh = {
     enable = true;
-    defaultShell = true;
 
     # Use prezto or p10k
     initExtra = ''
