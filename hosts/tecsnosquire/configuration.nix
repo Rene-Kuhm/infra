@@ -2,78 +2,58 @@
 
 {
   imports = [
+    ./hardware.nix
+    ./disko.nix
+    ./boot.nix
+    # All base/security/impermanence/networking/storage/users/services modules
+    # are imported by base/default.nix to avoid duplication.
     ../../modules/base
-    ../../modules/security
-    ../../modules/impermanence
-    ../../modules/boot
-    ../../modules/networking
-    ../../modules/storage
-    ../../modules/users/insyd.nix
-    # Services (commented out by phase, uncomment as needed)
-    # ../../modules/services/adguard
-    # ../../modules/services/gitea
-    # ../../modules/services/monitoring
-    # ../../modules/services/nextcloud
-    # ../../modules/services/homeassistant
-    # ../../modules/services/vaultwarden
-    # ../../modules/services/jellyfin
-    # ../../modules/services/immich
   ];
 
-  ##############################################################################
-  # Hostname & basic system
-  ##############################################################################
+  # Hostname
   networking.hostName = "TecnoSquire";
   networking.domain = "tsq.lan";
 
   # Time zone
   time.timeZone = "America/Buenos_Aires";
 
-  # i18n
+  # Locale
   i18n.defaultLocale = "es_AR.UTF-8";
   i18n.supportedLocales = [ "en_US.UTF-8/UTF-8" "es_AR.UTF-8/UTF-8" ];
 
-  ##############################################################################
+  # NixOS system state version (only set here, NOT in base modules)
+  system.stateVersion = "25.05";
+
   # Boot
-  ##############################################################################
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
-  # Initrd: need to include LUKS tools + TPM tools (for future-proof)
-  boot.initrd.availableKernelModules = [
-    "xhci_pci"
-    "ahci"
-    "usb_storage"
-    "usbhid"
-    "sd_mod"
-  ];
-  boot.initrd.kernelModules = [ "dm_mod" ];
+  boot.kernelPackages = pkgs.linuxPackages_6_12;
   boot.initrd.luks.devices = {
     primary = {
-      device = "/dev/disk/by-uuid/CHANGE-ME";  # Set by disko during install
+      device = "/dev/disk/by-uuid/CHANGE-ME";
       allowDiscards = true;
       bypassWorkqueues = true;
     };
   };
 
-  # Kernel
-  boot.kernelPackages = pkgs.linuxPackages_6_12;
+  # Filesystems (handled by disko)
+  fileSystems."/" = {
+    device = "/dev/disk/by-label/nixos";
+    fsType = "ext4";
+  };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-label/EFI";
+    fsType = "vfat";
+  };
+  fileSystems."/persistent" = {
+    device = "/dev/disk/by-label/persistent";
+    fsType = "ext4";
+    options = [ "defaults" "noatime" ];
+  };
 
-  # Required for Positivo BGH VJF155F11UAR
+  # Swap file (10GB RAM needs swap)
+  swapDevices = [ { device = "/var/lib/swapfile"; size = 4 * 1024; } ];
+
+  # Video drivers for Kaby Lake (intel)
   services.xserver.videoDrivers = [ "intel" ];
-
-  # File systems (handled by disko)
-  fileSystems."/".device = "/dev/disk/by-label/nixos";
-  fileSystems."/boot".device = "/dev/disk/by-label/EFI";
-  fileSystems."/boot".neededForBoot = true;
-
-  # Swap: use a swap file (we have only 10GB RAM)
-  swapDevices = [
-    { device = "/var/lib/swapfile"; size = 4 * 1024; }  # 4GB swap
-  ];
-
-  ##############################################################################
-  # System state version (required by NixOS)
-  ##############################################################################
-  system.stateVersion = "25.05";
 }
