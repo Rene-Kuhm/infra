@@ -1,0 +1,24 @@
+# Nix
+result/
+result-*
+*.drv
+
+# Secrets locales (las encrypted sí van en repo)
+*.age
+keys/*.key
+keys/*.pub
+!secrets/.sops.pub
+
+# Local development
+.direnv/
+.venv/
+*.local.nix
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
