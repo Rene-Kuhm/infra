@@ -1,24 +1,21 @@
-{ lib, stdenv, fetchurl }:
+{ stdenv, writeText }:
 
 stdenv.mkDerivation {
   pname = "hello-tecsnosquire";
   version = "0.1.0";
 
-  src = fetchurl {
-    url = "https://raw.githubusercontent.com/Rene-Kuhm/infra/main/README.md";
-    sha256 = "sha256-0000000000000000000000000000000000000000000000000000000000000000";
-  };
+  src = writeText "hello.txt" "Hello from TecnoSquire!";
 
   dontUnpack = true;
 
   installPhase = ''
     mkdir -p $out/share
-    cp $src $out/share/README.md
+    cp $src $out/share/hello.txt
   '';
 
   meta = {
     description = "Hello from TecnoSquire";
-    license = lib.licenses.mit;
-    platforms = lib.platforms.all;
+    license = stdenv.lib.licenses.mit;
+    platforms = stdenv.lib.platforms.all;
   };
 }
