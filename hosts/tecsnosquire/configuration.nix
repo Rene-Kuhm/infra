@@ -25,12 +25,14 @@
   system.stateVersion = "25.05";
 
   # Boot
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_6_12;
+  # NOTE: lanzaboote (configured in boot.nix) replaces systemd-boot.
+  # Do NOT enable boot.loader.systemd-boot or canTouchEfiVariables here.
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.initrd.luks.devices = {
     primary = {
-      device = "/dev/disk/by-uuid/CHANGE-ME";
+      # UUID is filled in automatically by disko during nixos-anywhere install.
+      # See hosts/tecsnosquire/disko.nix for the LUKS partition definition.
+      device = "/dev/disk/by-uuid/CHANGE-ME-AFTER-INSTALL";
       allowDiscards = true;
       bypassWorkqueues = true;
     };
@@ -39,9 +41,8 @@
   # Filesystems are managed by disko (see ./disko.nix)
   # Manual fileSystems definitions removed - let disko handle them
 
-  # Swap file (10GB RAM needs swap)
-  swapDevices = [ { device = "/var/lib/swapfile"; size = 4 * 1024; } ];
+  # Swap: managed by disko (see /dev/vg/swap in disko.nix, randomEncryption=true)
+  # Do NOT add swapDevices here or it will conflict with disko's swap.
 
-  # Video drivers for Kaby Lake (intel)
-  services.xserver.videoDrivers = [ "intel" ];
+  # Server is headless - no display manager, no X11, no video drivers needed.
 }

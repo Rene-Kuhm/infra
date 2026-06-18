@@ -22,7 +22,7 @@
         profiles = {
           "ts0" = {
             connection.type = "tun";
-            connection.permissions = [ "user:insyd" ];
+            connection.permissions = [ "user:tecnodespegue" ];
           };
         };
       };

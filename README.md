@@ -12,7 +12,7 @@ Monorepo NixOS para el server **TecnoSquire** (Positivo BGH VJF155F11UAR, i3-710
 - **disko** para partitioning declarativo
 - **deploy-rs** para deploys reproducibles
 - **Attic** propio como binario cache privado
-- **Home Manager** para dotfiles del usuario `insyd`
+- **Home Manager** para dotfiles del usuario `tecnodespegue`
 - **GitHub Actions CI** (flake check + build + push a Attic)
 
 ## Servicios por fase
@@ -45,7 +45,7 @@ Monorepo NixOS para el server **TecnoSquire** (Positivo BGH VJF155F11UAR, i3-710
 │   ├── networking/              # tailscale, firewall
 │   ├── storage/                 # attic, restic
 │   └── services/                # un módulo por servicio
-├── home/                        # home-manager (insyd)
+├── home/                        # home-manager (tecnodespegue)
 ├── packages/                    # derivations custom
 ├── overlays/                    # overlays de nixpkgs
 ├── secrets/                     # cifrado con sops

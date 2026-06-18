@@ -1,15 +1,15 @@
 { config, lib, pkgs, ... }:
 
 {
-  # Home Manager for 'insyd' user
+  # Home Manager for 'tecnodespegue' user
   home-manager = {
-    users.insyd = {
+    users.tecnodespegue = {
       imports = [
-        ../../home/insyd
+        ../../home/tecnodespegue
       ];
       home.stateVersion = "25.05";
-      home.username = "insyd";
-      home.homeDirectory = "/home/insyd";
+      home.username = "tecnodespegue";
+      home.homeDirectory = "/home/tecnodespegue";
     };
 
     # Use the nixpkgs from the flake

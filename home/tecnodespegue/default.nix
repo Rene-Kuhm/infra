@@ -11,13 +11,13 @@
   home.stateVersion = "25.05";
 
   # User info
-  home.username = "insyd";
-  home.homeDirectory = "/home/insyd";
+  home.username = "tecnodespegue";
+  home.homeDirectory = "/home/tecnodespegue";
 
   # Don't install fonts globally
   home.file = {
     # README for the home directory
-    ".local/share/insyd/README.md".text = ''
+    ".local/share/tecnodespegue/README.md".text = ''
       # TecnoSquire home directory
 
       This is a NixOS-managed home directory.

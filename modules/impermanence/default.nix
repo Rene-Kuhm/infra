@@ -36,7 +36,7 @@
       "/var/lib/sshd"
 
       # User home
-      "/home/insyd"
+      "/home/tecnodespegue"
 
       # Docker
       "/var/lib/docker"

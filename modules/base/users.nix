@@ -5,9 +5,9 @@
   users.mutableUsers = false;
 
   # Main user (you)
-  users.users.insyd = {
+  users.users.tecnodespegue = {
     isNormalUser = true;
-    home = "/home/insyd";
+    home = "/home/tecnodespegue";
     description = "Rene Kuhm";
     extraGroups = [
       "wheel"

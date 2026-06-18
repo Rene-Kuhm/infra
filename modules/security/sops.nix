@@ -3,7 +3,7 @@
 {
   # SOPS-nix: encrypted secrets in the repo
   # Requires:
-  #   1. Generate age key pair: `age-keygen -o keys/insyd.key`
+  #   1. Generate age key pair: `age-keygen -o keys/tecnodespegue.key`
   #   2. Save public key to secrets/.sops.pub
   #   3. Configure recipients in secrets/.sops.yaml
   #   4. Create encrypted file: `sops secrets/secrets.yaml`
@@ -19,9 +19,9 @@
 
     # Secrets per user
     secrets = {
-      # SSH keys for insyd user
-      "ssh/insyd_key" = {
-        neededForUsers = [ "insyd" ];
+      # SSH keys for tecnodespegue user
+      "ssh/tecnodespegue_key" = {
+        neededForUsers = [ "tecnodespegue" ];
       };
 
       # Attic credentials

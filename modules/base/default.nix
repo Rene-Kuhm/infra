@@ -6,6 +6,8 @@
     ./ssh.nix
     ./firewall.nix
     ./packages.nix
+    # Home-manager config for the main user (imported here so it ships with base)
+    ../users/tecnodespegue.nix
   ];
 
   # Allow unfree (some hardware drivers need it)
