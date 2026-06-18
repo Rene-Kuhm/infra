@@ -16,7 +16,7 @@
       ClientAliveCountMax = 2;
       AllowAgentForwarding = true;
       AllowTcpForwarding = true;
-      GatewayPorts = false;
+      GatewayPorts = "no";
       PermitEmptyPasswords = false;
       KexAlgorithms = [
         "curve25519-sha256"
