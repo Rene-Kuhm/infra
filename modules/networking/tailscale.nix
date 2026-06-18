@@ -15,7 +15,4 @@
 
   # Open firewall for Tailscale
   networking.firewall.trustedInterfaces = [ "tailscale0" ];
-
-  # MagicDNS
-  services.tailscale.useRoutingFeatures = "client";
 }
