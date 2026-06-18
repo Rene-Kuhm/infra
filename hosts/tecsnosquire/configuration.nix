@@ -8,7 +8,7 @@
     ../../modules/boot
     ../../modules/networking
     ../../modules/storage
-    ../../modules/users/insyd
+    ../../modules/users/insyd.nix
     # Services (commented out by phase, uncomment as needed)
     # ../../modules/services/adguard
     # ../../modules/services/gitea
