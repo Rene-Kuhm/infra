@@ -12,8 +12,8 @@
 
       keybinds = {
         normal = {
-          bind "Ctrl g" "GoToTab 1";
-          bind "Ctrl h" "GoToTab 2";
+          "Ctrl g" = "GoToTab 1";
+          "Ctrl h" = "GoToTab 2";
         };
       };
 
