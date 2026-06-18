@@ -12,12 +12,5 @@
         set -euo pipefail
         ${pkgs.treefmt}/bin/treefmt --fail-on-change "$@"
       '';
-
-      # Pre-commit hooks (for development hygiene)
-      pre-commit = {
-        check.enable = true;
-        # Uncomment to enable git hooks auto-install
-        # settings.hooks.pre-commit.enable = true;
-      };
     };
 }
