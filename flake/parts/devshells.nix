@@ -8,37 +8,35 @@
           git
           gh
           nix
-          nixpkgs-fmt
+          nixfmt-rfc-style
           deadnix
           statix
-
-          # Deployment
-          deploy-rs.packages.${pkgs.system}.deploy-rs
-          nixos-rebuild  # Available via system path on NixOS
 
           # Secrets
           sops
           age
+          ssh-to-age
 
           # SSH
           openssh
-          ssh-to-age  # Convert SSH keys to age keys for sops
 
           # Inspection
-          nvd           # nix version diff
+          nvd
           nix-diff
           nix-tree
 
           # Verification
-          attic-client  # once we set up Attic
+          attic-client
         ];
 
         shellHook = ''
           echo "🏛️ TecnoSquire infra shell"
+          echo ""
           echo "Available commands:"
           echo "  nix flake check            # Verify everything builds"
-          echo "  deploy .#tecsnosquire      # Deploy to server"
-          echo "  sops                      # Edit encrypted secrets"
+          echo "  nix build .#tecsnosquire   # Build NixOS config"
+          echo "  deploy-rs .#tecsnosquire   # Deploy to server"
+          echo "  sops secrets/secrets.yaml  # Edit encrypted secrets"
           echo ""
         '';
       };
