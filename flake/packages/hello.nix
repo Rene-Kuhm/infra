@@ -1,4 +1,4 @@
-{ stdenv, fetchurl }:
+{ lib, stdenv, fetchurl }:
 
 stdenv.mkDerivation {
   pname = "hello-tecsnosquire";
@@ -16,9 +16,9 @@ stdenv.mkDerivation {
     cp $src $out/share/README.md
   '';
 
-  meta = with stdenv.lib; {
+  meta = {
     description = "Hello from TecnoSquire";
-    license = licenses.mit;
-    platforms = platforms.all;
+    license = lib.licenses.mit;
+    platforms = lib.platforms.all;
   };
 }
