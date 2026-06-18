@@ -1,9 +1,7 @@
 { inputs, lib, ... }: {
   # CI-specific outputs that don't fit elsewhere
   flake = {
-    # Nix flake check (run by GitHub Actions)
-    checks.x86_64-linux.flake-check = inputs.nixpkgs-unstable.lib.runCommand "flake-check" { } ''
-      ${inputs.nixpkgs-unstable.hello}/bin/hello
-    '';
+    # CI builds happen via GitHub Actions (.github/workflows/check.yml)
+    # No need for additional outputs here
   };
 }
