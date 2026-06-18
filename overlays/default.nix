@@ -1,10 +1,7 @@
-{ final, previous, ... }: {
-  # Overlays for TecnoSquire
-  # Add package overrides, version pins, etc. here
-
-  # Example: override a default package version
-  # examplePackage = previous.examplePackage.overrideAttrs (old: {
-  #   version = "1.2.3";
-  #   src = previous.fetchurl { ... };
-  # });
+{ pkgs }: {
+  # Default overlay: nothing yet, but available for custom packages
+  default = final: prev: {
+    # Add custom packages to nixpkgs here
+    # e.g., myPkg = final.callPackage ../packages/myPkg { };
+  };
 }
