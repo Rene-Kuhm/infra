@@ -18,12 +18,6 @@
   # Enable important kernel modules
   boot.kernelModules = [ "kvm-intel" ];
 
-  # Intel CPU microcode updates
-  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-
-  # Required system packages
-  system.stateVersion = "25.05";
-
   # Filesystem support
   boot.supportedFilesystems = [ "ext4" "btrfs" "xfs" "vfat" "ntfs" "f2fs" "zfs" ];
 
@@ -42,7 +36,4 @@
     enable = true;
     enable32Bit = true;
   };
-
-  # CPU flags
-  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
