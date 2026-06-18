@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }: {
+{ pkgs, ... }: {
   # VM tests for services
   # These run in a NixOS VM and verify the service starts correctly
 
