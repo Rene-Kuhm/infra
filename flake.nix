@@ -18,7 +18,8 @@
 
     # NixOS modules
     lanzaboote = {
-      url = "github:nix-community/lanzaboote";
+      # v0.4.3 is compatible with nixpkgs 25.05 (v1.0.0 requires newer lib types)
+      url = "github:nix-community/lanzaboote/v0.4.3";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
