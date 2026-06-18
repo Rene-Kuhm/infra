@@ -1,4 +1,4 @@
-{ stdenv, writeText }:
+{ lib, stdenv, writeText }:
 
 stdenv.mkDerivation {
   pname = "hello-tecsnosquire";
@@ -15,7 +15,7 @@ stdenv.mkDerivation {
 
   meta = {
     description = "Hello from TecnoSquire";
-    license = stdenv.lib.licenses.mit;
-    platforms = stdenv.lib.platforms.all;
+    license = lib.licenses.mit;
+    platforms = lib.platforms.all;
   };
 }
