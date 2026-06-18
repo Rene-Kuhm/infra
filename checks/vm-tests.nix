@@ -1,16 +1,16 @@
-{ pkgs, inputs, ... }: {
+{ pkgs, ... }: {
   # VM tests for services
   # These run in a NixOS VM and verify the service starts correctly
 
-  # Example: test that nginx serves a test page
+  # Example: test that adguard serves a test page
   nginxTest = pkgs.nixosTest {
     name = "nginx-basic-test";
 
     nodes.machine = { pkgs, ... }: {
       imports = [
-        ../modules/services/adguard
-        ../modules/services/gitea
-        ../modules/services/monitoring
+        ../../modules/services/adguard
+        ../../modules/services/gitea
+        ../../modules/services/monitoring
       ];
 
       services.adguard.enable = true;
@@ -24,6 +24,4 @@
       machine.succeed("curl -sf http://localhost:3000/ | grep -q 'AdGuard'")
     '';
   };
-
-  # More tests can be added here
 }
