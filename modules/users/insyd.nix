@@ -15,10 +15,5 @@
     # Use the nixpkgs from the flake
     useGlobalPkgs = false;
     useUserPackages = true;
-
-    # Extra packages available to all users
-    sharedModules = [
-      ../../modules/stylix  # if used
-    ];
   };
 }
