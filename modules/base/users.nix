@@ -19,8 +19,8 @@
     uid = 1000;
     # SSH keys are managed via sops-nix (see secrets.nix)
     openssh.authorizedKeys.keys = [
-      # Primary SSH key from Windows
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAmAbVCB6UOX6KSn+UxdvFK8xQ8hdUk1PRFeDCZ6BwWHw insyd@tecnosquire"
+      # Primary SSH key from Windows (codex@nix-enterprise-recovery)
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGq8DWjO6xcdY4P7+DHUbnlHFst6AWzBHPf/IymZuUbP codex@nix-enterprise-recovery"
     ];
   };
 
