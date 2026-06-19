@@ -1,13 +1,18 @@
 { config, lib, pkgs, ... }:
 
 {
-  # Secure Boot configuration
+  # Secure Boot configuration via lanzaboote
   # Note: This requires:
-  #   1. Secure Boot enabled in BIOS
-  #   2. MOK (Machine Owner Key) enrollment on first boot
-  #   3. Lanzaboote generates and signs UKI
+  #   1. Secure Boot enabled in BIOS (or enrolled via MOK after install)
+  #   2. PKI keys generated and committed to keys/ directory
+  #   3. After first install, enroll keys via:
+  #        mokutil --import /var/lib/lanzaboote-installer/keys/PK.auth
+  #        (or use sbctl enroll-keys)
 
-  # Required kernel parameters for secure boot (combined)
+  # PKI bundle for lanzaboote (signs the UKI)
+  boot.lanzaboote.pkiBundle = ../../keys;
+
+  # Required kernel parameters for secure boot
   boot.kernelParams = [
     "lockdown=integrity"
     "module.sig_enforce=1"
