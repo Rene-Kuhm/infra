@@ -6,8 +6,10 @@
     ./ssh.nix
     ./firewall.nix
     ./packages.nix
-    # Home-manager config for the main user (imported here so it ships with base)
+    # Home-manager config for the main user (imports here so it ships with base)
     ../users/tecnodespegue.nix
+    # Security modules (lanzaboote, sops, LUKS) - imported here so they apply to all hosts
+    ../security
   ];
 
   # Allow unfree (some hardware drivers need it)
