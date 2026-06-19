@@ -19,11 +19,6 @@
 
     # Secrets per user
     secrets = {
-      # SSH keys for tecnodespegue user (required before login)
-      "ssh/tecnodespegue_key" = {
-        neededForUsers = true;
-      };
-
       # Tailscale pre-auth key (auto-reconnect after install/reboot)
       "tailscale/auth_key" = {
         owner = "root";
