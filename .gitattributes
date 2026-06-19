@@ -1,0 +1,7 @@
+# Lanzaboote PKI keys are binary; prevent line-ending conversion
+keys/**/*    binary
+*.key        binary
+*.pem        binary
+*.cer        binary
+*.crt        binary
+*.auth       binary
