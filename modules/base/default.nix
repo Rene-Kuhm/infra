@@ -19,6 +19,8 @@
   hardware.enableRedistributableFirmware = true;
 
   # Default packages
+  # NOTE: neovim is installed via home-manager (programs.neovim.enable)
+  # to avoid /nix/store collision (home vs system providing the same binary).
   environment.systemPackages = with pkgs; [
     vim
     git
@@ -46,7 +48,6 @@
     parted
     gptfdisk
     smartmontools
-    neovim
   ];
 
   # Nix settings
