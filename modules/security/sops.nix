@@ -44,17 +44,8 @@
         group = "root";
       };
 
-      # Vaultwarden (if F1)
-      "vaultwarden/admin_token" = {
-        owner = "root";
-        group = "root";
-      };
-
-      # Monitoring admin
-      "grafana/admin_password" = {
-        owner = "root";
-        group = "root";
-      };
+      # NOTE: vaultwarden/admin_token and grafana/admin_password are reserved
+      # for Fase 1/2 deploy. Add them to secrets.yaml when those services go live.
     };
   };
 
