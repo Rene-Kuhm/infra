@@ -19,34 +19,39 @@
 
     # Secrets per user
     secrets = {
-      # SSH keys for tecnodespegue user
+      # SSH keys for tecnodespegue user (required before login)
       "ssh/tecnodespegue_key" = {
-        neededForUsers = [ "tecnodespegue" ];
+        neededForUsers = true;
       };
 
       # Attic credentials
       "attic/admin_token" = {
-        neededForUsers = [ "root" ];
+        owner = "root";
+        group = "root";
       };
 
       # Gitea admin token
       "gitea/admin_token" = {
-        neededForUsers = [ "root" ];
+        owner = "root";
+        group = "root";
       };
 
       # AdGuard password
       "adguard/admin_password" = {
-        neededForUsers = [ "root" ];
+        owner = "root";
+        group = "root";
       };
 
       # Vaultwarden (if F1)
       "vaultwarden/admin_token" = {
-        neededForUsers = [ "root" ];
+        owner = "root";
+        group = "root";
       };
 
       # Monitoring admin
       "grafana/admin_password" = {
-        neededForUsers = [ "root" ];
+        owner = "root";
+        group = "root";
       };
     };
   };
