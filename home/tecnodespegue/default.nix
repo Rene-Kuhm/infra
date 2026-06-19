@@ -1,11 +1,7 @@
-{ config, lib, pkgs, ... }:
+{ ... }:
 
 {
-  imports = [
-    ./cli.nix
-    ./dev.nix
-    ./zellij.nix
-  ];
+  imports = [ ./cli.nix ./dev.nix ./zellij.nix ];
 
   # Home state version (must match NixOS)
   home.stateVersion = "25.05";

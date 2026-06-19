@@ -1,5 +1,6 @@
 {
-  description = "NixOS reproducible infrastructure monorepo - TecnoSquire server";
+  description =
+    "NixOS reproducible infrastructure monorepo - TecnoSquire server";
 
   inputs = {
     # NixOS packages
@@ -67,12 +68,10 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, flake-parts, flake-utils, ... }:
+  outputs =
+    inputs@{ self, nixpkgs, nixpkgs-unstable, flake-parts, flake-utils, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = [
-        "x86_64-linux"
-        "aarch64-linux"
-      ];
+      systems = [ "x86_64-linux" "aarch64-linux" ];
 
       imports = [
         inputs.treefmt-nix.flakeModule
@@ -90,14 +89,11 @@
 
       flake = {
         # Default binary cache for faster builds (also our own Attic once up)
-        substituters = [
-          "https://cache.nixos.org"
-        ];
+        substituters = [ "https://cache.nixos.org" ];
 
         # Public trusted keys
-        trustedPublicKeys = [
-          "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-        ];
+        trustedPublicKeys =
+          [ "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=" ];
       };
     };
 }

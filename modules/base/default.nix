@@ -20,9 +20,33 @@
 
   # Default packages
   environment.systemPackages = with pkgs; [
-    vim git curl wget htop tmux jq ripgrep fd bat tree zstd unzip p7zip
-    pciutils usbutils lshw dmidecode ethtool nettools bind traceroute mtr
-    parted gptfdisk smartmontools neovim
+    vim
+    git
+    curl
+    wget
+    htop
+    tmux
+    jq
+    ripgrep
+    fd
+    bat
+    tree
+    zstd
+    unzip
+    p7zip
+    pciutils
+    usbutils
+    lshw
+    dmidecode
+    ethtool
+    nettools
+    bind
+    traceroute
+    mtr
+    parted
+    gptfdisk
+    smartmontools
+    neovim
   ];
 
   # Nix settings
