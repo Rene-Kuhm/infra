@@ -2,13 +2,12 @@
 
 {
   # Home packages (CLI tools)
+  # NOTE: keep this list disjoint from modules/base/default.nix to avoid collisions.
+  # System packages (in environment.systemPackages) cover: git, jq, ripgrep, fd,
+  # bat, mtr, unzip, p7zip, zstd, neovim, etc.
   home.packages = with pkgs; [
     # Modern CLI replacements
-    bat
-    ripgrep
-    fd
     fzf
-    jq
     yq-go
     eza
     zoxide
@@ -24,30 +23,21 @@
     wezterm
 
     # Editor
-    neovim
     helix
 
     # Version control
-    git
     lazygit
     gh
     tig
 
     # Network
-    mtr
     bandwhich
     speedtest-cli
     dog
     httpie
 
     # Search/navigation
-    fzf
     broot
-
-    # Archives
-    unzip
-    p7zip
-    zstd
 
     # Build tools
     gnumake
