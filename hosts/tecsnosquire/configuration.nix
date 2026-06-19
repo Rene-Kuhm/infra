@@ -28,15 +28,7 @@
   # NOTE: lanzaboote (configured in boot.nix) replaces systemd-boot.
   # Do NOT enable boot.loader.systemd-boot or canTouchEfiVariables here.
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.initrd.luks.devices = {
-    primary = {
-      # UUID is filled in automatically by disko during nixos-anywhere install.
-      # See hosts/tecsnosquire/disko.nix for the LUKS partition definition.
-      device = "/dev/disk/by-uuid/CHANGE-ME-AFTER-INSTALL";
-      allowDiscards = true;
-      bypassWorkqueues = true;
-    };
-  };
+  # LUKS device is configured in modules/security/luks.nix (using /dev/sda2)
 
   # Filesystems are managed by disko (see ./disko.nix)
   # Manual fileSystems definitions removed - let disko handle them

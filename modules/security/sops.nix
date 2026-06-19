@@ -24,6 +24,13 @@
         neededForUsers = true;
       };
 
+      # Tailscale pre-auth key (auto-reconnect after install/reboot)
+      "tailscale/auth_key" = {
+        owner = "root";
+        group = "root";
+        mode = "0600";
+      };
+
       # Attic credentials
       "attic/admin_token" = {
         owner = "root";
