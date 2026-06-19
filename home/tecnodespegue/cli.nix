@@ -61,7 +61,7 @@
     enable = true;
 
     # Use prezto or p10k
-    initExtra = ''
+    initContent = ''
       # Completion
       autoload -U compinit && compinit
       zstyle ':completion:*' menu select
